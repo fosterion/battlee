@@ -1,19 +1,18 @@
-﻿using System;
+﻿using Battlee.Enums;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Battlee.Interfaces
 {
-    interface IPlayer
+    interface IEnemy
     {
         string Name { get; set; }
 
         int Health { get; set; }
 
-        int Strength { get; set; }
+        double Damage { get; set; }
 
-        int Protection { get; set; }
-
-        IWeapon Weapon { get; set; }
+        Element Element { get; set; }
     }
 }

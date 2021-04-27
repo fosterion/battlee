@@ -1,11 +1,12 @@
-﻿using Battlee.Interfaces;
+﻿using Battlee.Entities.Weapons;
+using Battlee.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Battlee.Entities.PlayerRaces
+namespace Battlee.Entities.Characters
 {
-    class Elf : IPlayer
+    class Character : ICharacter
     {
         public string Name { get; set; }
 
@@ -17,13 +18,16 @@ namespace Battlee.Entities.PlayerRaces
 
         public IWeapon Weapon { get; set; }
 
-        public Elf(string name, int health, int strength, int protection, IWeapon weapon)
+        public IWeapon DefaultWeapon { get; set; }
+
+        public Character(string name, int health, int strength, int protection)
         {
             Name = name;
             Health = health;
             Strength = strength;
             Protection = protection;
-            Weapon = weapon;
+            DefaultWeapon = new Hand();
+            Weapon = DefaultWeapon;
         }
     }
 }

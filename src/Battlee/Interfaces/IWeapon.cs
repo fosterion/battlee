@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Battlee.Enums;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -8,8 +9,12 @@ namespace Battlee.Interfaces
     {
         string Name { get; set; }
 
-        int Damage { get; set; }
+        int MinDamage { get; set; }
 
-        int NeedStr { get; set; }
+        int MaxDamage { get; set; }
+
+        int NeedStrength { get; set; }
+
+        Rarity Rarity { get; set; }
     }
 }

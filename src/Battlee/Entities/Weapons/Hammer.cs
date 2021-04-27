@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Battlee.Entities.Weapons
 {
-    class Hand : IWeapon
+    class Hammer : IWeapon
     {
         public string Name { get; set; }
 
@@ -18,13 +18,13 @@ namespace Battlee.Entities.Weapons
 
         public Rarity Rarity { get; set; }
 
-        public Hand()
+        public Hammer(string name, int minDamage, int maxDamage, int needStrength, Rarity rarity)
         {
-            Name = "Рука";
-            MinDamage = 1;
-            MaxDamage = 1;
-            NeedStrength = 1;
-            Rarity = Rarity.Common;
+            Name = name;
+            MinDamage = minDamage;
+            MaxDamage = maxDamage;
+            NeedStrength = needStrength;
+            Rarity = rarity;
         }
     }
 }

@@ -1,65 +1,63 @@
-﻿using Battlee.Entities.Monsters;
-using Battlee.Entities.PlayerRaces;
+﻿using Battlee.Entities.Enemies;
+using Battlee.Entities.Characters;
 using Battlee.Entities.Weapons;
 using Battlee.Interfaces;
-using Battlee.Managers;
+using Battlee.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Battlee.Enums;
 
 namespace Battlee
 {
     class Program
     {
-        private static Battle bm;
+        private static BattleController bc;
 
         static void Main(string[] args)
         {
-            bm = new Battle();
-            var player = CreateCharacter();
-            var monsters = CreateMonsters();
-            var weapons = CreateWeapons();
+            bc = new BattleController();
 
-            Console.WriteLine($"{player.Name} держит в руках {player.Weapon.Name}");
-
-            bm.Hit(player, monsters[0]);
-
-            player.Weapon = weapons.First();
-
-            Console.WriteLine($"{player.Name} держит в руках {player.Weapon.Name}");
-
-            bm.Hit(player, monsters[0]);
-
-            player.Weapon = weapons.Last();
-
-            Console.WriteLine($"{player.Name} держит в руках {player.Weapon.Name}");
-
-            bm.Hit(player, monsters[0]);
+            var hero = CreateCharacter();
+            hero.Weapon = GiveWeapon();
+            SimulateBattle(hero);
 
             Console.ReadKey();
         }
 
-        private static IPlayer CreateCharacter()
+        private static IWeapon GiveWeapon()
         {
-            return new Human("Леонард", 100, 5, 10, new Hand());
+            var name = "Rusty axe";
+            var minDamage = 17;
+            var maxDamage = 24;
+            var needStrength = 14;
+            var rarity = Rarity.Rare;
+
+            return new Axe(name, minDamage, maxDamage, needStrength, rarity);
         }
 
-        private static List<IMonster> CreateMonsters()
+        private static ICharacter CreateCharacter()
         {
-            return new List<IMonster>
-            {
-                new HellDog("Неистовый адский пёс", 1000, 37),
-                new IceTroll("Ледяной тролль Валентин", 2400, 49)
-            };
+            var name = "Arthur";
+            var health = 100;
+            var strength = 15;
+            var protection = 14;
+
+            return new Character(name, health, strength, protection);
         }
 
-        private static List<IWeapon> CreateWeapons()
+        private static void SimulateBattle(ICharacter character)
         {
-            return new List<IWeapon>
+            IEnemy enemy = new Troll("Ugly Goerk", 1000, 27, Element.None);
+
+            while (character.Health > 0 && enemy.Health > 0)
             {
-                new BrokenSword("Сломанный железный меч", 4, 7),
-                new FlameHammer("Пламенный молот вождя", 66, 14)
-            };
+                if (character.Health > 0 && enemy.Health > 0)
+                    bc.Hit(character, enemy);
+
+                if (character.Health > 0 && enemy.Health > 0)
+                    bc.Hit(enemy, character);
+            }
         }
     }
 }

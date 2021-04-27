@@ -4,12 +4,18 @@ using System.Text;
 
 namespace Battlee.Interfaces
 {
-    interface IMonster
+    interface ICharacter
     {
         string Name { get; set; }
 
         int Health { get; set; }
 
-        int Damage { get; set; }
+        int Strength { get; set; }
+
+        int Protection { get; set; }
+
+        IWeapon Weapon { get; set; }
+
+        IWeapon DefaultWeapon { get; set; }
     }
 }
