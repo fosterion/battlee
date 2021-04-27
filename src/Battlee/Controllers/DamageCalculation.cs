@@ -7,21 +7,21 @@ namespace Battlee.Controllers
 {
     class DamageCalculation
     {
-        internal int GetDamageToEnemy(ICharacter character)
+        internal int GetDamageToEnemy(ICharacter hero)
         {
-            var baseDamage = new Random().Next((int)character.Weapon.MinDamage, (int)character.Weapon.MaxDamage);
-            var strengthCoeff = character.Strength;
-            var needStrength = character.Weapon.NeedStrength;
+            var baseDamage = new Random().Next(hero.Weapon.MinDamage, hero.Weapon.MaxDamage);
+            var strength = hero.Strength;
+            var needStrength = hero.Weapon.NeedStrength;
 
-            return baseDamage * strengthCoeff / (strengthCoeff > needStrength ? strengthCoeff - needStrength : needStrength);
+            return baseDamage * strength / (strength > needStrength ? strength - needStrength : needStrength);
         }
 
-        internal int GetDamageToCharacter(IEnemy enemy, ICharacter character)
+        internal int GetDamageToCharacter(IEnemy enemy, ICharacter hero)
         {
-            var damage = enemy.Damage;
-            var protection = character.Protection;
+            var damage = new Random().Next(enemy.MinDamage, enemy.MaxDamage);
+            var protection = hero.Protection;
 
-            return (int)Math.Ceiling(damage / protection);
+            return damage / protection * 10;
         }
     }
 }

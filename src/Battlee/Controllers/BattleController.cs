@@ -14,43 +14,51 @@ namespace Battlee.Controllers
             dc = new DamageCalculation();
         }
 
-        internal void Hit(ICharacter character, IEnemy enemy)
+        internal void Hit(ICharacter hero, IEnemy enemy)
         {
-            var damage = dc.GetDamageToEnemy(character);
+            var damage = dc.GetDamageToEnemy(hero);
 
-            if (enemy.Health - damage >= 0)
+            if (enemy.Health - damage > 0)
             {
                 enemy.Health -= damage;
-                Console.WriteLine($"[{character.Name}] hits [{enemy.Name}] by [{damage}] damage." +
-                    $"\n\tCharacter has: [{character.Health}] HP" +
-                    $"\n\tEnemy has: [{enemy.Health}] HP");
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                Console.WriteLine($"[{hero.Name}] hits [{enemy.Name}] by [{damage}] damage." +
+                    $"\n\tCharacter has: [{hero.Health}] HP / " +
+                    $"Enemy has: [{enemy.Health}] HP");
+                Console.ResetColor();
             }
             else
             {
                 enemy.Health = 0;
-                Console.WriteLine($"[{character.Name}] kills [{enemy.Name}]." +
-                    $"\n\tCharacter has: [{character.Health}] HP" +
-                    $"\n\tEnemy has: [{enemy.Health}] HP");
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                Console.WriteLine($"[{hero.Name}] kills [{enemy.Name}]." +
+                    $"\n\tCharacter has: [{hero.Health}] HP / " +
+                    $"Enemy has: [{enemy.Health}] HP");
+                Console.ResetColor();
             }
         }
 
-        internal void Hit(IEnemy enemy, ICharacter character)
+        internal void Hit(IEnemy enemy, ICharacter hero)
         {
-            var damage = dc.GetDamageToCharacter(enemy, character);
+            var damage = dc.GetDamageToCharacter(enemy, hero);
 
-            if (character.Health - damage >= 0)
+            if (hero.Health - damage > 0)
             {
-                character.Health -= damage;
-                Console.WriteLine($"[{enemy.Name}] hits [{character.Name}] by [{damage}] damage." +
-                    $"\n\tCharacter has: [{character.Health}] HP" +
-                    $"\n\tEnemy has: [{enemy.Health}] HP");
+                hero.Health -= damage;
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine($"[{enemy.Name}] hits [{hero.Name}] by [{damage}] damage." +
+                    $"\n\tCharacter has: [{hero.Health}] HP / " +
+                    $"Enemy has: [{enemy.Health}] HP");
+                Console.ResetColor();
             }
             else
             {
-                character.Health = 0;
-                Console.WriteLine($"[{enemy.Name}] kills [{character.Name}]." +
-                    $"\n\tCharacter has: [{character.Health}] HP" +
-                    $"\n\tEnemy has: [{enemy.Health}] HP");
+                hero.Health = 0;
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine($"[{enemy.Name}] kills [{hero.Name}]." +
+                    $"\n\tCharacter has: [{hero.Health}] HP / " +
+                    $"Enemy has: [{enemy.Health}] HP");
+                Console.ResetColor();
             }
         }
     }

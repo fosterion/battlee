@@ -1,5 +1,4 @@
-﻿using Battlee.Entities.Enemies;
-using Battlee.Entities.Characters;
+﻿using Battlee.Entities.Characters;
 using Battlee.Entities.Weapons;
 using Battlee.Interfaces;
 using Battlee.Controllers;
@@ -7,6 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Battlee.Enums;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace Battlee
 {
@@ -31,7 +32,7 @@ namespace Battlee
             var minDamage = 17;
             var maxDamage = 24;
             var needStrength = 14;
-            var rarity = Rarity.Rare;
+            var rarity = EnumGenerator.GetRandom<Rarity>();
 
             return new Axe(name, minDamage, maxDamage, needStrength, rarity);
         }
@@ -43,20 +44,24 @@ namespace Battlee
             var strength = 15;
             var protection = 14;
 
-            return new Character(name, health, strength, protection);
+            return new Hero(name, health, strength, protection);
         }
 
-        private static void SimulateBattle(ICharacter character)
+        private static void SimulateBattle(ICharacter hero)
         {
-            IEnemy enemy = new Troll("Ugly Goerk", 1000, 27, Element.None);
+            IEnemy enemy = new Enemy("Ugly Goerk", 1000, 24, 33, EnumGenerator.GetRandom<Element>());
 
-            while (character.Health > 0 && enemy.Health > 0)
+            while (hero.Health > 0 && enemy.Health > 0)
             {
-                if (character.Health > 0 && enemy.Health > 0)
-                    bc.Hit(character, enemy);
+                if (hero.Health > 0 && enemy.Health > 0)
+                    bc.Hit(hero, enemy);
 
-                if (character.Health > 0 && enemy.Health > 0)
-                    bc.Hit(enemy, character);
+                Thread.Sleep(100);
+
+                if (hero.Health > 0 && enemy.Health > 0)
+                    bc.Hit(enemy, hero);
+
+                Thread.Sleep(100);
             }
         }
     }

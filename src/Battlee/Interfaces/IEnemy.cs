@@ -11,7 +11,9 @@ namespace Battlee.Interfaces
 
         int Health { get; set; }
 
-        double Damage { get; set; }
+        int MinDamage { get; set; }
+
+        int MaxDamage { get; set; }
 
         Element Element { get; set; }
     }

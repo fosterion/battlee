@@ -4,23 +4,26 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Battlee.Entities.Enemies
+namespace Battlee.Entities.Characters
 {
-    class Troll : IEnemy
+    class Enemy : IEnemy
     {
         public string Name { get; set; }
 
         public int Health { get; set; }
 
-        public double Damage { get; set; }
+        public int MinDamage { get; set; }
+
+        public int MaxDamage { get; set; }
 
         public Element Element { get; set; }
 
-        public Troll(string name, int health, double damage, Element element)
+        public Enemy(string name, int health, int minDamage, int maxDamage, Element element)
         {
             Name = name;
             Health = health;
-            Damage = damage;
+            MinDamage = minDamage;
+            MaxDamage = maxDamage;
             Element = element;
         }
     }

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Battlee.Entities.Characters
 {
-    class Character : ICharacter
+    class Hero : ICharacter
     {
         public string Name { get; set; }
 
@@ -20,7 +20,7 @@ namespace Battlee.Entities.Characters
 
         public IWeapon DefaultWeapon { get; set; }
 
-        public Character(string name, int health, int strength, int protection)
+        public Hero(string name, int health, int strength, int protection)
         {
             Name = name;
             Health = health;
