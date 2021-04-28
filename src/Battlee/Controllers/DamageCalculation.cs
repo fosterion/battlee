@@ -7,7 +7,7 @@ namespace Battlee.Controllers
 {
     class DamageCalculation
     {
-        internal int GetDamageToEnemy(ICharacter hero)
+        internal int GetDamageToEnemy(IProtagonist hero)
         {
             var baseDamage = new Random().Next(hero.Weapon.MinDamage, hero.Weapon.MaxDamage);
             var strength = hero.Strength;
@@ -16,7 +16,7 @@ namespace Battlee.Controllers
             return baseDamage * strength / (strength > needStrength ? strength - needStrength : needStrength);
         }
 
-        internal int GetDamageToCharacter(IEnemy enemy, ICharacter hero)
+        internal int GetDamageToCharacter(IEnemy enemy, IProtagonist hero)
         {
             var damage = new Random().Next(enemy.MinDamage, enemy.MaxDamage);
             var protection = hero.Protection;

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Battlee.Interfaces
 {
-    interface ICharacter
+    interface IProtagonist
     {
         string Name { get; set; }
 

@@ -14,7 +14,7 @@ namespace Battlee.Controllers
             dc = new DamageCalculation();
         }
 
-        internal void Hit(ICharacter hero, IEnemy enemy)
+        internal void Hit(IProtagonist hero, IEnemy enemy)
         {
             var damage = dc.GetDamageToEnemy(hero);
 
@@ -38,7 +38,7 @@ namespace Battlee.Controllers
             }
         }
 
-        internal void Hit(IEnemy enemy, ICharacter hero)
+        internal void Hit(IEnemy enemy, IProtagonist hero)
         {
             var damage = dc.GetDamageToCharacter(enemy, hero);
 

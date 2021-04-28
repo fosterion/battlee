@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Battlee.Entities.Weapons
+namespace Battlee.Models.Equipment.Weapons
 {
     class Hand : IWeapon
     {

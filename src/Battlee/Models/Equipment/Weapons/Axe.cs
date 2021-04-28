@@ -4,9 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Battlee.Entities.Weapons
+namespace Battlee.Models.Equipment.Weapons
 {
-    class Sword : IWeapon
+    class Axe : IWeapon
     {
         public string Name { get; set; }
 
@@ -18,7 +18,7 @@ namespace Battlee.Entities.Weapons
 
         public Rarity Rarity { get; set; }
 
-        public Sword(string name, int minDamage, int maxDamage, int needStrength, Rarity rarity)
+        public Axe(string name, int minDamage, int maxDamage, int needStrength, Rarity rarity)
         {
             Name = name;
             MinDamage = minDamage;
