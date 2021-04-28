@@ -11,6 +11,8 @@ namespace Battlee
 {
     class Program
     {
+        private static Dictionary<Rarity, double> RarityRatio { get; set; }
+
         static void Main(string[] args)
         {
             var items = new List<Rarity>();
@@ -38,6 +40,19 @@ namespace Battlee
             Console.WriteLine("Ice:\t\t"    + elements.Count(x => (int)x == 70));
             Console.WriteLine("Electric:\t" + elements.Count(x => (int)x == 80));
             Console.WriteLine("Earth:\t\t"  + elements.Count(x => (int)x == 90));
+
+            /* */
+
+            FillRarityRatio();
+
+            var damage = new Random().Next(30, 170);
+
+            foreach (var item in RarityRatio)
+            {
+                Console.WriteLine($"Damage: {damage}. With {item.Key} ratio: {damage * item.Value}");
+            }
+
+            /* */
 
             Console.ReadKey();
         }
@@ -67,6 +82,18 @@ namespace Battlee
                 int n when (n > 80 && n <= 90) => Element.Electric,
                 int n when (n > 90)            => Element.Earth,
                 _ => throw new NotImplementedException("Unknown element")
+            };
+        }
+
+        private static void FillRarityRatio()
+        {
+            RarityRatio = new Dictionary<Rarity, double>
+            {
+                { Rarity.Common,     1 },
+                { Rarity.Uncommon, 1.2 },
+                { Rarity.Rare,     1.4 },
+                { Rarity.Epic,     1.6 },
+                { Rarity.Legendary,  2 }
             };
         }
     }
