@@ -6,10 +6,10 @@ namespace Battlee.Enums
 {
     enum Element
     {
-        None,
-        Fire,
-        Ice,
-        Electric,
-        Earth
+        None,     // 60%
+        Fire,     // 10%
+        Ice,      // 10%
+        Electric, // 10%
+        Earth     // 10%
     }
 }
