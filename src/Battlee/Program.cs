@@ -6,68 +6,31 @@ using System.Linq;
 using Battlee.Enums;
 using System.Threading.Tasks;
 using System.Threading;
+using Battlee.Mechanics;
 
 namespace Battlee
 {
     class Program
     {
-        private static Dictionary<Rarity, double> RarityRatio { get; set; }
-
         static void Main(string[] args)
         {
-            var items = new List<Rarity>();
+            var ic = new ItemColor();
+            var roll = new RarityRoll();
+            var rar = new List<Rarity>();
+
             for (int i = 0; i < 10000; i++)
             {
-                var randomed = RollRarity(Rarity.Uncommon);
-                items.Add(randomed);
-            }
-            Console.WriteLine("Common:\t\t"  + items.Count(x => (int)x == 1));
-            Console.WriteLine("Uncommon:\t"  + items.Count(x => (int)x == 50));
-            Console.WriteLine("Rare:\t\t"    + items.Count(x => (int)x == 75));
-            Console.WriteLine("Epic:\t\t"    + items.Count(x => (int)x == 90));
-            Console.WriteLine("Legendary:\t" + items.Count(x => (int)x == 98));
-
-            Console.WriteLine("==========");
-
-            var elements = new List<Element>();
-            for (int i = 0; i < 10000; i++)
-            {
-                var randomed = RollElement(true);
-                elements.Add(randomed);
-            }
-            Console.WriteLine("None:\t\t"   + elements.Count(x => (int)x == 1));
-            Console.WriteLine("Fire:\t\t"   + elements.Count(x => (int)x == 60));
-            Console.WriteLine("Ice:\t\t"    + elements.Count(x => (int)x == 70));
-            Console.WriteLine("Electric:\t" + elements.Count(x => (int)x == 80));
-            Console.WriteLine("Earth:\t\t"  + elements.Count(x => (int)x == 90));
-
-            /* */
-
-            FillRarityRatio();
-
-            var damage = new Random().Next(30, 170);
-
-            foreach (var item in RarityRatio)
-            {
-                Console.WriteLine($"Damage: {damage}. With {item.Key} ratio: {damage * item.Value}");
+                var randomed = roll.Get(1.1);
+                rar.Add(randomed);
             }
 
-            /* */
+            ic.CommonItem   ("Common:    " + rar.Count(x => x is Rarity.Common));
+            ic.UncommonItem ("Uncommon:  " + rar.Count(x => x is Rarity.Uncommon));
+            ic.RareItem     ("Rare:      " + rar.Count(x => x is Rarity.Rare));
+            ic.EpicItem     ("Epic:      " + rar.Count(x => x is Rarity.Epic));
+            ic.LegendaryItem("Legendary: " + rar.Count(x => x is Rarity.Legendary));
 
             Console.ReadKey();
-        }
-
-        private static Rarity RollRarity(Rarity beginRarity)
-        {
-            return new Random().Next((int)beginRarity + 1, 100) switch
-            {
-                int n when (n <= 50)           => Rarity.Common,
-                int n when (n > 50 && n <= 75) => Rarity.Uncommon,
-                int n when (n > 75 && n <= 90) => Rarity.Rare,
-                int n when (n > 90 && n <= 98) => Rarity.Epic,
-                int n when (n > 98)            => Rarity.Legendary,
-                _ => throw new InvalidOperationException("Unknown rarity")
-            };
         }
 
         private static Element RollElement(bool isAlwaysElement = false)
@@ -82,18 +45,6 @@ namespace Battlee
                 int n when (n > 80 && n <= 90) => Element.Electric,
                 int n when (n > 90)            => Element.Earth,
                 _ => throw new InvalidOperationException("Unknown element")
-            };
-        }
-
-        private static void FillRarityRatio()
-        {
-            RarityRatio = new Dictionary<Rarity, double>
-            {
-                { Rarity.Common,     1 },
-                { Rarity.Uncommon, 1.2 },
-                { Rarity.Rare,     1.4 },
-                { Rarity.Epic,     1.6 },
-                { Rarity.Legendary,  2 }
             };
         }
     }

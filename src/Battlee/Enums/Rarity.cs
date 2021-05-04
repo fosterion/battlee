@@ -6,10 +6,10 @@ namespace Battlee.Enums
 {
     enum Rarity
     {
-        Common    = 1,  // 50%
-        Uncommon  = 50, // 25%
-        Rare      = 75, // 15%
-        Epic      = 90, // 8%
-        Legendary = 98  // 2%
+        Common,
+        Uncommon,
+        Rare,
+        Epic,
+        Legendary
     }
 }
