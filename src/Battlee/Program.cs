@@ -66,7 +66,7 @@ namespace Battlee
                 int n when (n > 75 && n <= 90) => Rarity.Rare,
                 int n when (n > 90 && n <= 98) => Rarity.Epic,
                 int n when (n > 98)            => Rarity.Legendary,
-                _ => throw new NotImplementedException("Unknown rarity")
+                _ => throw new InvalidOperationException("Unknown rarity")
             };
         }
 
@@ -81,7 +81,7 @@ namespace Battlee
                 int n when (n > 70 && n <= 80) => Element.Ice,
                 int n when (n > 80 && n <= 90) => Element.Electric,
                 int n when (n > 90)            => Element.Earth,
-                _ => throw new NotImplementedException("Unknown element")
+                _ => throw new InvalidOperationException("Unknown element")
             };
         }
 
