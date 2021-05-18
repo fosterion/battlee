@@ -32,20 +32,5 @@ namespace Battlee
 
             Console.ReadKey();
         }
-
-        private static Element RollElement(bool isAlwaysElement = false)
-        {
-            var beginRnd = isAlwaysElement ? 61 : 1;
-
-            return new Random().Next(beginRnd, 100) switch
-            {
-                int n when (n <= 60)           => Element.None,
-                int n when (n > 60 && n <= 70) => Element.Fire,
-                int n when (n > 70 && n <= 80) => Element.Ice,
-                int n when (n > 80 && n <= 90) => Element.Electric,
-                int n when (n > 90)            => Element.Earth,
-                _ => throw new InvalidOperationException("Unknown element")
-            };
-        }
     }
 }
