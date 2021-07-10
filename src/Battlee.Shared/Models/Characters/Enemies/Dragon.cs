@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Battlee.Models.Characters.Enemies
+namespace Battlee.Shared.Models.Characters.Enemies
 {
     class Dragon
     {

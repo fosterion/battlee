@@ -1,5 +1,5 @@
-﻿using Battlee.Enums;
-using Battlee.Mechanics;
+﻿using Battlee.Mechanics;
+using Battlee.Shared.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;

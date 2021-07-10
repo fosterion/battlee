@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Battlee.Models.Characters.Protagonist
+namespace Battlee.Shared.Models.Characters.Protagonist
 {
     class Dwarf
     {

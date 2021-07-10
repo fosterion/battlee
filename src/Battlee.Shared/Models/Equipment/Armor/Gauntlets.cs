@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Battlee.Models.Equipment.Armor
+namespace Battlee.Shared.Models.Equipment.Armor
 {
     class Gauntlets
     {

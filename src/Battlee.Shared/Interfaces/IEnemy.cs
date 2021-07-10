@@ -1,9 +1,9 @@
-﻿using Battlee.Enums;
+﻿using Battlee.Shared.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Battlee.Interfaces
+namespace Battlee.Shared.Interfaces
 {
     interface IEnemy
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Battlee.Enums
+namespace Battlee.Shared.Enums
 {
     enum Rarity
     {

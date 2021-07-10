@@ -1,4 +1,4 @@
-﻿using Battlee.Interfaces;
+﻿using Battlee.Shared.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;

@@ -1,30 +1,17 @@
-﻿using Battlee.Enums;
-using Battlee.Interfaces;
+﻿using Battlee.Shared.Enums;
+using Battlee.Shared.Models.Equipment.Weapons.Base;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Battlee.Models.Equipment.Weapons
+namespace Battlee.Shared.Models.Equipment.Weapons
 {
-    class Hammer : IWeapon
+    class Hammer : Weapon
     {
-        public string Name { get; set; }
-
-        public int MinDamage { get; set; }
-
-        public int MaxDamage { get; set; }
-
-        public int NeedStrength { get; set; }
-
-        public Rarity Rarity { get; set; }
-
         public Hammer(string name, int minDamage, int maxDamage, int needStrength, Rarity rarity)
+            : base(name, minDamage, maxDamage, needStrength, rarity)
         {
-            Name = name;
-            MinDamage = minDamage;
-            MaxDamage = maxDamage;
-            NeedStrength = needStrength;
-            Rarity = rarity;
+
         }
     }
 }

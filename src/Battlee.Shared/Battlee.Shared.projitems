@@ -11,7 +11,6 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Enums\Element.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\Rarity.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IArmor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IEnemy.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IProtagonist.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IWeapon.cs" />
@@ -30,6 +29,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Equipment\Armor\Helmet.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Equipment\Armor\Pants.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Equipment\Weapons\Axe.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Equipment\Weapons\Base\Weapon.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Equipment\Weapons\Hammer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Equipment\Weapons\Hand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Equipment\Weapons\Sword.cs" />

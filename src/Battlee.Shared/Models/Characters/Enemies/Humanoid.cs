@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Battlee.Models.Enemies
+namespace Battlee.Shared.Models.Enemies
 {
     class Humanoid
     {

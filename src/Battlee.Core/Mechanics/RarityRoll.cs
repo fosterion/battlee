@@ -1,4 +1,4 @@
-﻿using Battlee.Enums;
+﻿using Battlee.Shared.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
