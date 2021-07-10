@@ -1,5 +1,5 @@
 ﻿using Battlee.Shared.Enums;
-using Battlee.Shared.Models.Equipment.Weapons.Base;
+using Battlee.Shared.Models.Base;
 using System;
 using System.Collections.Generic;
 using System.Text;
