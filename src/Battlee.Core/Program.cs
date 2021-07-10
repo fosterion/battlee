@@ -1,14 +1,10 @@
-﻿using Battlee.Interfaces;
-using Battlee.Controllers;
+﻿using Battlee.Enums;
+using Battlee.Mechanics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Battlee.Enums;
-using System.Threading.Tasks;
-using System.Threading;
-using Battlee.Mechanics;
 
-namespace Battlee
+namespace Battlee.Core
 {
     class Program
     {
@@ -24,10 +20,10 @@ namespace Battlee
                 rar.Add(randomed);
             }
 
-            ic.CommonItem   ("Common:    " + rar.Count(x => x is Rarity.Common));
-            ic.UncommonItem ("Uncommon:  " + rar.Count(x => x is Rarity.Uncommon));
-            ic.RareItem     ("Rare:      " + rar.Count(x => x is Rarity.Rare));
-            ic.EpicItem     ("Epic:      " + rar.Count(x => x is Rarity.Epic));
+            ic.CommonItem("Common:    " + rar.Count(x => x is Rarity.Common));
+            ic.UncommonItem("Uncommon:  " + rar.Count(x => x is Rarity.Uncommon));
+            ic.RareItem("Rare:      " + rar.Count(x => x is Rarity.Rare));
+            ic.EpicItem("Epic:      " + rar.Count(x => x is Rarity.Epic));
             ic.LegendaryItem("Legendary: " + rar.Count(x => x is Rarity.Legendary));
 
             Console.ReadKey();

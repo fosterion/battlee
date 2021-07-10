@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>07faa8c8-e2a1-4604-86e5-8397d25c11cb</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Battlee.Shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\Element.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\Rarity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IArmor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IEnemy.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IProtagonist.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IWeapon.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Characters\Enemies\Beast.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Characters\Enemies\Demon.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Characters\Enemies\Dragon.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Characters\Enemies\Humanoid.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Characters\Enemies\Insect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Characters\Enemies\Undead.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Characters\Protagonist\Dwarf.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Characters\Protagonist\Elf.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Characters\Protagonist\Human.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Equipment\Armor\Body.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Equipment\Armor\Boots.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Equipment\Armor\Gauntlets.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Equipment\Armor\Helmet.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Equipment\Armor\Pants.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Equipment\Weapons\Axe.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Equipment\Weapons\Hammer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Equipment\Weapons\Hand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Equipment\Weapons\Sword.cs" />
+  </ItemGroup>
+</Project>
