@@ -1,4 +1,4 @@
-﻿using Battlee.Shared.Interfaces;
+﻿using Battlee.Shared.Models.Base;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,7 +14,7 @@ namespace Battlee.Controllers
             dc = new DamageCalculation();
         }
 
-        internal void Hit(IProtagonist hero, IEnemy enemy)
+        internal void Hit(Protagonist hero, Enemy enemy)
         {
             var damage = dc.GetDamageToEnemy(hero);
 
@@ -38,7 +38,7 @@ namespace Battlee.Controllers
             }
         }
 
-        internal void Hit(IEnemy enemy, IProtagonist hero)
+        internal void Hit(Enemy enemy, Protagonist hero)
         {
             var damage = dc.GetDamageToCharacter(enemy, hero);
 
